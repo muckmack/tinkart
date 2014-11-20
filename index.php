@@ -3,12 +3,14 @@
 function base_url() {
     return 'http://localhost/tinkart';
 }
-
-$link = mysql_connect('thebestgilde.de.w011e040.kasserver.com', 'd01c63bd', 'trkXMY9TH4C4EbAC');
+$dbhost = 'thebestgilde.de.w011e040.kasserver.com';
+$dbname = 'd01c63bd';
+$dbpass = 'trkXMY9TH4C4EbAC';
+$link = mysql_connect($dbhost, $dbname, $dbpass);
 if(!$link){
     die("kein server Zugriff/Server nicht gefunden");
 }
-mysql_select_db('d01c63bd') or die("datenbank nicht gefunden");
+mysql_select_db($dbname) or die("datenbank nicht gefunden");
 mysql_query("SET NAMES 'utf8'");
 
 include('classes/View.php');
