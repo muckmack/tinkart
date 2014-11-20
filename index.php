@@ -6,7 +6,7 @@ function base_url() {
 
 $link = mysql_connect('thebestgilde.de.w011e040.kasserver.com', 'd01c63bd', 'trkXMY9TH4C4EbAC');
 if(!$link){
-    die("kein server zugriff/gefunden");
+    die("kein server Zugriff/Server nicht gefunden");
 }
 mysql_select_db('d01c63bd') or die("datenbank nicht gefunden");
 mysql_query("SET NAMES 'utf8'");
