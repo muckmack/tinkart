@@ -1,7 +1,6 @@
 <?php
-/*hi muchel*/
-class Controller {
 
+class Controller {
     public function display($query)
     {
         $layout = View::make('layout');
