@@ -11,7 +11,7 @@
 
     <div class="row">
         <?php foreach($projects as $project): ?>
-        <div class="col-md-6">
+        <div class="col-md-5">
             <?php echo View::make('projectbox')->set('project', $project) ?>
         </div>
         <?php endforeach; ?>
@@ -26,7 +26,7 @@
             <div class="projectbox">
                 <img src="img/Bild1.jpg" alt="" class="img-responsive"/>
                 <div class="description">
-                   In diesem Projekt geht es um folgende glohreiche Idee...
+                    Dieser selbstgebaute elektronische cityroller ist die Erfüllung eines Traumes von Lisa Kukalu...
                 </div>
                 <div class="meta">
                     <div class="comments"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 133</div>
@@ -59,13 +59,14 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-3">
             <h2>Newest</h2>
 
             <div class="projectbox">
                 <img src="<?php echo base_url() ?>/img/Bild4.jpg" alt="" class="img-responsive"/>
                 <div class="description">
-                  Dieser selbstgebaute elektronische cityroller ist die Erfüllung eines Traumes von Lisa Kukalu...
+                    In diesem Projekt geht es um folgende glohreiche Idee...
                 </div>
                 <div class="meta">
                     <div class="comments"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 133</div>
