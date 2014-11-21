@@ -1,7 +1,6 @@
 <?php
 
 class Controller {
-
     public function display($query)
     {
         $layout = View::make('layout');
