@@ -46,7 +46,7 @@
                 <li class="active">
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
+                            <input type="text" class="form-control" placeholder="#Search">
                         </div>
                         <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                     </form>
@@ -87,4 +87,5 @@
 <script src="<?php echo base_url() ?>/js/jquery-1.11.1.min.js"></script>
 <script src="<?php echo base_url() ?>/js/bootstrap.min.js"></script>
 </body>
+<footer>©Yeong-Cheol Jang, Michali Alexandrakis</footer>
 </html>
