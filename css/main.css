@@ -8,9 +8,11 @@
 #logo{
     width: 10%;
 }
+
 .projectbox {
     position: relative;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .projectbox .description {
@@ -22,7 +24,10 @@
     display: none;
     width: 100%;
 }
-
+.projectbox > img{
+    width:100%;
+    max-height: 100%;
+}
 .projectbox:hover .description {
     display: block;
 }

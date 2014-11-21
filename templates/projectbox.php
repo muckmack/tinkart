@@ -1,5 +1,5 @@
 <div class="projectbox">
-    <img src="<?php echo base_url() ?>/img/strand1.jpg" alt="" class="img-responsive"/>
+    <img src="<?php echo @$project['previewlink'] ?>" alt="" class="img-responsive"/>
     <div class="description">
         <?php echo @$project['description'] ?>
     </div>
