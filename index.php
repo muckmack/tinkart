@@ -7,6 +7,7 @@ $dbhost = 'thebestgilde.de.w011e040.kasserver.com';
 $dbname = 'd01c63bd';
 $dbpass = 'trkXMY9TH4C4EbAC';
 $link = mysql_connect($dbhost, $dbname, $dbpass);
+
 if(!$link){
     die("kein server Zugriff/Server nicht gefunden");
 }
