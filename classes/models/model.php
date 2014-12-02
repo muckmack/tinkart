@@ -30,7 +30,7 @@ public static function orderProjectsByTitle($uid){
         $orderedList[] = $row;
 
     }
-    //erste zeile entfernen kaka
+    //erste zeile entfernen kakaka
     unset($orderedList[0]);
     mysql_close($link);
     return $orderedList;
