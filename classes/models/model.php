@@ -36,17 +36,12 @@ class Model
 
     public function destroy($id)
     {
-        // löschen
-        $result = mysql_query("DELETE  FROM " . $this->table . "WHERE id = " . $id);
+        $result = mysql_query("DELETE  FROM " . $this->table . "WHERE id = ". $id);
     }
 
     public function update($array)
     {
         $result = mysql_query("UPDATE " . $this->table . "SET ");
-    }
-
-    public function createArray()
-    {
 
     }
 
