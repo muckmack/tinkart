@@ -30,7 +30,7 @@ class Model
 
     public function create($array)
     {
-        // eintrag anlegen
+        // eintrag anlegenas
         $result = mysql_query("INSERT INTO " . $this->table . "(" . implode(",", array_keys($array)) . ") VALUES (" . implode(",", $array) . ")");
     }
 
