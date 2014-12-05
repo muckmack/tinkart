@@ -6,6 +6,6 @@
  * Time: 18:27
  */
 
-class User {
+class UserEntity {
 
 } 
