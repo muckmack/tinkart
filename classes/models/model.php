@@ -4,7 +4,7 @@
  * Created by IntelliJ IDEA.
  * User: PengBang
  * Date: 12.11.2014
- * Time: 20:09
+ * Time: 20:09 s
  */
 class Model
 {
@@ -40,9 +40,8 @@ class Model
     }
 
     public function update($array)
-    {
-        $result = mysql_query("UPDATE " . $this->table . "SET ");
-
+    {// raus http_build_query!
+        $result = mysql_query("UPDATE " . $this->table . "SET " . http_build_query($array) . " WHERE id = " . $array['id']);
     }
 
 }

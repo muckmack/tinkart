@@ -1,4 +1,8 @@
 <?php
+session_start();
+?>
+
+<?php
 
 class Controller {
     public function display($query)

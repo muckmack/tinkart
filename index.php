@@ -23,7 +23,7 @@ mysql_query("SET NAMES 'utf8'");
 
 include('classes/View.php');
 include('classes/controllers/Controller.php');
-include('classes/models/Model.php');
+include('classes/models/model.php');
 include('classes/models/ProjectModel.php');
 
 $controller = new Controller();
