@@ -25,6 +25,10 @@ include('classes/View.php');
 include('classes/controllers/Controller.php');
 include('classes/models/model.php');
 include('classes/models/ProjectModel.php');
+include('classes/models/CommentModel.php');
+include('classes/models/ContentModel.php');
+include('classes/models/UserModel.php');
+include('classes/models/VoteModel.php');
 
 $controller = new Controller();
 

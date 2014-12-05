@@ -1,10 +1,9 @@
 <?php
-session_start();
-?>
 
-<?php
+session_start();
 
 class Controller {
+
     public function display($query)
     {
         $layout = View::make('layout');
