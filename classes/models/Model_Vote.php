@@ -3,9 +3,8 @@
  * Created by IntelliJ IDEA.
  * User: PengBang
  * Date: 02.12.2014
- * Time: 23:32
+ * Time: 23:31
  */
-
-class ContentModel {
-    protected $table = 'contents';
+class Model_Vote extends Model{
+    protected $table = 'votes';
 }

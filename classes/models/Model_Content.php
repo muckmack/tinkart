@@ -6,6 +6,6 @@
  * Time: 23:32
  */
 
-class UserModel {
-    protected $table = 'users';
-} 
+class Model_Content {
+    protected $table = 'contents';
+}

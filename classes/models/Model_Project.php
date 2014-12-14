@@ -1,9 +1,8 @@
 <?php
 
-class Project extends Model{
+class Model_Project extends Model{
 
     protected $table = 'projects';
-
 
 
 }

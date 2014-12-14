@@ -6,8 +6,6 @@
  * Time: 23:32
  */
 
-class CommentModel extends Model{
-
-    protected $table ='comments';
-
+class Model_User {
+    protected $table = 'users';
 } 

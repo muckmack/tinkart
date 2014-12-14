@@ -38,7 +38,7 @@ class Controller {
 
     public function index()
     {
-        $project = new Project();
+        $project = new Model_Project();
         //$comments = new Comment();
 
         $projects = $project->all();
