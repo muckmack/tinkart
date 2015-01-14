@@ -3,6 +3,9 @@
 function base_url() {
     return 'http://localhost/tinkart';
 }
+function logged_in(){
+   return @$_SESSION['logged_in'];
+}
 
 require '/vendor/rb.php';
 R::setup('mysql:host=localhost;dbname=mydb','root', '');

@@ -62,7 +62,10 @@ class Controller {
     }
     public function registrationPage()
     {
-        return View::make('register');
+        return View::make('register')->set([
+            'title' => 'Tinkart',
+            'heading' => 'global ideas for everyone '
+        ]);
     }
     public function searchresults()
     {
