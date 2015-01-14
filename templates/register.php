@@ -12,8 +12,10 @@
         <fieldset >
 
             <input type='hidden' name='submitted' id='submitted' value='1'/><br/>
-            <label for='name' >Your Full Name*: </label><br/>
-            <input type='text' name='name' id='name' maxlength="50" /><br/>
+            <label for='name' >Your First Name*: </label><br/>
+            <input type='text' name='firstname' id='firstname' maxlength="50" /><br/>
+            <label for='name' >Your Last Name*: </label><br/>
+            <input type='text' name='lastname' id='lastname' maxlength="50" /><br/>
             <label for='email' >Email Address*:</label><br/>
             <input type='text' name='email' id='email' maxlength="50" /><br/>
 
