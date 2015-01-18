@@ -1,6 +1,6 @@
 <div class="container">
 
-    <a href="#" id="tinkart">
+    <a href="<?php echo base_url() ?>" id="tinkart">
         <img src="<?php echo base_url() ?>/img/logo.png" id="logo" alt=""/>
         Tinkart
     </a>
