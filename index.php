@@ -38,7 +38,7 @@ include('classes/models/model.php');
 include('classes/models/Model_Project.php');
 include('classes/models/Model_Comment.php');
 include('classes/models/Model_Content.php');
-include('classes/models/Model_User.php');
+//include('classes/models/Model_User.php');
 include('classes/models/Model_Vote.php');
 
 $controller = new Controller();

@@ -51,8 +51,7 @@ class Model extends RedBean_SimpleModel
 //        $result = mysql_query("UPDATE " . $this->table . "SET " . http_build_query($array) . " WHERE id = " . $array['id']);
         $this->table = $array;
         $result = R::store($this->table);
-
-
     }
+
 
 }

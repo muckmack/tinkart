@@ -9,6 +9,7 @@
 
 
 class Model_Register extends Model {
+
     public function __construct()
     {
         $exists = R::find('users', 'email = ' . $_GET["email"]);
@@ -24,7 +25,7 @@ class Model_Register extends Model {
             if($_GET["regpass1"]==$_GET["regpass2"])
             {
 
-                $sql="insert into users (name,email,password)values('$_GET[regname]','$_GET[regemail]','$_GET[regpass1]')";
+                $sql="insert into users (name,email,password)values('$_GET[name]','$_GET[email]','$_GET[password]')";
                 $result=mysql_query($sql,$conn) or die(mysql_error());
                 print "<h1>you have registered sucessfully</h1>";
 

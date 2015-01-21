@@ -60,12 +60,72 @@ class Controller {
     {
         return View::make('projectpage');
     }
+
+    public function validateRegistrationRequest()
+    {
+        $email1 = $_POST['email'];
+        $email2 = $_POST['email2'];
+        $pass1 = $_POST['password'];
+        $pass2 = $_POST['password2'];
+
+        if ($email1 != $email2)
+        {
+            return "Your email adresses did not match!";
+        }
+
+        if ($pass1 != $pass2)
+        {
+            return "Your passwords did not match!";
+        }
+
+        $existing = R::find('user','email like ?', [$email1]);
+        $existing = array_filter($existing);
+
+        if (!empty($existing))
+        {
+            return "Email adress already registered";
+        }
+
+        return true;
+    }
+
     public function registrationPage()
     {
-        return View::make('register')->set([
-            'title' => 'Tinkart',
-            'heading' => 'global ideas for everyone '
-        ]);
+        if(!isset($_POST['submit']))
+        {
+            return View::make('register')->set([
+                'title' => 'Tinkart',
+                'heading' => 'global ideas for everyone ',
+                'error' => false
+            ]);
+        }
+
+        if($result = $this->validateRegistrationRequest() === true)
+        {
+            $newUser = R::dispense('user');
+            $newUser->email = $_POST['email'];
+            $newUser->firstname = $_POST['firstname'];
+            $newUser->lastname = $_POST['lastname'];
+            $newUser->username = $_POST['username'];
+            $id = R::store($newUser);
+
+            return View::make('register_success')->set([
+                'title' => 'Tinkart',
+                'heading' => 'global ideas for everyone ',
+            ]);
+        }
+        else
+        {
+            return View::make('register')->set([
+                'title' => 'Tinkart',
+                'heading' => 'global ideas for everyone ',
+                'error' => $result
+            ]);
+        }
+
+        //
+
+
     }
     public function searchresults()
     {
