@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 class Controller {
@@ -28,7 +27,8 @@ class Controller {
             case '/create-project':
                 echo $layout->set('title', 'Project Creator')->set('content', $this->createProject());
                 break;
-
+            case '/login':
+                echo $layout->set('title', 'Logging in')->set('content', $this->checkLogin());
 
             default:
                 echo '404 Diese Seite wurde nicht gefunden';
@@ -70,7 +70,7 @@ class Controller {
 
         if ($email1 != $email2)
         {
-            return "Your email adresses did not match!";
+            return "Your email addresses did not match!";
         }
 
         if ($pass1 != $pass2)
@@ -78,17 +78,41 @@ class Controller {
             return "Your passwords did not match!";
         }
 
-        $existing = R::find('user','email like ?', [$email1]);
+        $existing = R::find('user','where email like ?', [$email1]);
         $existing = array_filter($existing);
 
         if (!empty($existing))
         {
-            return "Email adress already registered";
+            return "Email address already registered";
         }
 
         return true;
     }
-
+    public function validatePassword($user,$pass)
+    {
+        $user = R::find('user','where email like ?',[$user]);
+        $hashedUserPassword = $user['password'];
+        if (password_verify($pass,$hashedUserPassword))
+            return true;
+        return false;
+    }
+    public function checkLogin()
+    {
+        $loginUser= $_POST['loginMail'];
+        $loginPass = $_POST['loginPass'];
+        $possibleUser = R::find('user','where email like ?',[$loginUser]);
+        if ($possibleUser['email'] == $loginUser)
+        {
+            if($this->validatePassword($loginUser, $loginPass))
+            {
+                $_SESSION['logged_in'] = true;
+            }
+        }
+    }
+    public function encryptPassword($passw)
+    {
+        return password_hash($passw, PASSWORD_BCRYPT);
+    }
     public function registrationPage()
     {
         if(!isset($_POST['submit']))
@@ -107,6 +131,7 @@ class Controller {
             $newUser->firstname = $_POST['firstname'];
             $newUser->lastname = $_POST['lastname'];
             $newUser->username = $_POST['username'];
+            $newUser->password = $this->encryptPassword($_POST['password']);
             $id = R::store($newUser);
 
             return View::make('register_success')->set([

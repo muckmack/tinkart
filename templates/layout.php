@@ -60,19 +60,19 @@
                            aria-expanded="false">Login<span class="caret"></span></a>
 
                         <ul class="dropdown-menu" role="menu">
-                            <form class="navbar-form navbar-left" action="<?php echo base_url() ?>/login" >
+                            <form method="post" name="login" class="navbar-form navbar-left" action="<?php echo base_url() ?>/login" >
                                 <li>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Username">
+                                        <input name="loginMail" type="text" id="loginMail" class="form-control" placeholder="Email address">
                                     </div>
                                 </li>
                                 <li>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password">
+                                        <input name="loginPass" type="password" id="loginPass" class="form-control" placeholder="Password">
                                     </div>
                                 </li>
                                 <li>
-                                    <button type="submit" class="btn btn-default">Submit</button>
+                                    <input name="submit" type="submit" class="btn btn-default" value="login">
                                     <a href="register" class="btn btn-default">Register Now!</a>
                                 </li>
                             </form>
