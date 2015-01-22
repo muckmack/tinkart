@@ -7,7 +7,7 @@
     <h1><?php echo $heading ?></h1>
     <h2>Register Now</h2>
     <p>and become a member of a fast growing Community of Innovators and Creators. Master the Art of Tinkering</p>
-    <?php echo $error; ?>
+    <?php echo $regerror ?>
         <form name = 'registerForm' id='registerForm' action='register' method='POST'
               accept-charset='UTF-8'>
             <fieldset >

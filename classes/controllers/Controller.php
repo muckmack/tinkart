@@ -43,7 +43,7 @@ class Controller {
 
         $projects = $project->all();
 
-        foreach ($projects as &$pro)
+        foreach ($projects as $pro)
         {
            // $pro['description'] = 'blub';
             //$pro['comments'] = $comments->allByProject($pro['id']);
@@ -70,27 +70,27 @@ class Controller {
 
         if ($email1 != $email2)
         {
-            return "Your email addresses did not match!";
+            return 'Your email addresses did not match!';
         }
 
         if ($pass1 != $pass2)
         {
-            return "Your passwords did not match!";
+            return 'Your passwords did not match!';
         }
 
-        $existing = R::find('user','where email like ?', [$email1]);
-        $existing = array_filter($existing);
+        $existing = R::find('user','email like ?', [$email1]);
+//        $existing = array_filter($existing);
 
         if (!empty($existing))
         {
-            return "Email address already registered";
+            return 'Email address already registered';
         }
 
         return true;
     }
     public function validatePassword($user,$pass)
     {
-        $user = R::find('user','where email like ?',[$user]);
+        $user = R::find('user','email like ?',[$user]);
         $hashedUserPassword = $user['password'];
         if (password_verify($pass,$hashedUserPassword))
             return true;
@@ -100,12 +100,12 @@ class Controller {
     {
         $loginUser= $_POST['loginMail'];
         $loginPass = $_POST['loginPass'];
-        $possibleUser = R::find('user','where email like ?',[$loginUser]);
+        $possibleUser = R::find('user','email like ?',[$loginUser]);
         if ($possibleUser['email'] == $loginUser)
         {
             if($this->validatePassword($loginUser, $loginPass))
             {
-                $_SESSION['logged_in'] = true;
+                @$this->$_SESSION['logged_in'] = true;
             }
         }
     }
@@ -113,6 +113,7 @@ class Controller {
     {
         return password_hash($passw, PASSWORD_BCRYPT);
     }
+
     public function registrationPage()
     {
         if(!isset($_POST['submit']))
@@ -120,11 +121,11 @@ class Controller {
             return View::make('register')->set([
                 'title' => 'Tinkart',
                 'heading' => 'global ideas for everyone ',
-                'error' => false
+                'regerror' => false
             ]);
         }
-
-        if($result = $this->validateRegistrationRequest() === true)
+        $result = $this->validateRegistrationRequest();
+        if($result  === true)
         {
             $newUser = R::dispense('user');
             $newUser->email = $_POST['email'];
@@ -144,7 +145,7 @@ class Controller {
             return View::make('register')->set([
                 'title' => 'Tinkart',
                 'heading' => 'global ideas for everyone ',
-                'error' => $result
+                'regerror' => '<p style="'.'color : red ">NOTICE:'.$result.'</p>'
             ]);
         }
 
